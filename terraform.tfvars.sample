@@ -1,0 +1,11 @@
+auth_token = ""
+
+project_id = ""
+
+count_arm = 1
+
+count_x86 = 1
+
+secrets_encryption = false
+
+facility = "dc13"

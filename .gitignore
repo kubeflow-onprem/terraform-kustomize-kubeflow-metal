@@ -1,0 +1,6 @@
+*.tfvars
+metal-key
+metal-key.pub
+*.tfstate*
+kubeconfig
+.terraform
