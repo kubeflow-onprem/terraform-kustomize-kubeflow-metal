@@ -1,7 +1,7 @@
 module "multiarch-k8s" {
-  source = "/Users/keith/Projects/terraform-metal-multiarch-k8s"
-  # source  = "equinix/multiarch-k8s/metal"
-  # version = "0.4.0"
+  # source = "/Users/keith/Projects/terraform-metal-multiarch-k8s"
+  source  = "equinix/multiarch-k8s/metal"
+  version = "0.4.0"
 
   auth_token           = var.auth_token
   metal_create_project = false
