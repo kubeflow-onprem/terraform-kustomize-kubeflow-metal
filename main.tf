@@ -1,7 +1,7 @@
 module "multiarch-k8s" {
   source = "/Users/keith/Projects/terraform-metal-multiarch-k8s"
-  # source  = "equinix/multiarch-k8s/metal" # not the correct version; use a local version until equinix publishes a new one
-  # version = "0.3.0"
+  # source  = "equinix/multiarch-k8s/metal"
+  # version = "0.4.0"
 
   auth_token           = var.auth_token
   metal_create_project = false
@@ -13,31 +13,31 @@ module "multiarch-k8s" {
   loadbalancer_type    = "kube-vip"
 }
 
-data "kustomization_build" "kubeflow_build" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/example"
-}
-
-resource "kustomization_resource" "kubeflow_manifests_priority_1" {
-  for_each = data.kustomization_build.kubeflow_build.ids_prio[0]
-
-  manifest = data.kustomization_build.kubeflow_build.manifests[each.value]
-}
-
-resource "kustomization_resource" "kubeflow_manifests_priority_2" {
-  for_each = data.kustomization_build.kubeflow_build.ids_prio[1]
-  manifest = data.kustomization_build.kubeflow_build.manifests[each.value]
+resource "kubernetes_namespace" "local-path-provisioner" {
+  metadata {
+    name = "local-path-provisioner"
+  }
 
   depends_on = [
-    kustomization_resource.kubeflow_manifests_priority_1
+    module.multiarch-k8s
   ]
 }
 
-resource "kustomization_resource" "kubeflow_manifests_priority_3" {
-  for_each = data.kustomization_build.kubeflow_build.ids_prio[2]
-  manifest = data.kustomization_build.kubeflow_build.manifests[each.value]
+resource "helm_release" "local-path-provisioner" {
+  name = "local-path-provisioner"
+
+  repository = "https://ebrianne.github.io/helm-charts"
+  chart      = "local-path-provisioner"
+  namespace  = "local-path-provisioner"
 
   depends_on = [
-    kustomization_resource.kubeflow_manifests_priority_2
+    kubernetes_namespace.local-path-provisioner
   ]
+
+  set {
+    name  = "storageClass.defaultClass"
+    value = true
+  }
 }
+
 

@@ -31,7 +31,7 @@ variable "count_x86" {
 }
 
 variable "kubeflow_version" {
-  type = string
+  type        = string
   description = "Version of kubeflow to install"
-  default = "1.4.0"
+  default     = "1.4.0"
 }
