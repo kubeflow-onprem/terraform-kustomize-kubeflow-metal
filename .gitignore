@@ -4,4 +4,3 @@ metal-key.pub
 *.tfstate*
 kubeconfig
 .terraform
-kubeflow*/
