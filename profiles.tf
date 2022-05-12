@@ -1,5 +1,5 @@
 data "kustomization_build" "kubeflow_profiles" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/profiles/upstream/overlays/kubeflow"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/profiles/upstream/overlays/kubeflow"
 }
 
 resource "kustomization_resource" "kubeflow_profiles_manifests_priority_1" {

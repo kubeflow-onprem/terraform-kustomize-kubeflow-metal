@@ -1,5 +1,5 @@
 data "kustomization_build" "kubeflow_roles" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/kubeflow-roles/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/kubeflow-roles/base"
 }
 
 resource "kustomization_resource" "kubeflow_roles_manifests_priority_1" {

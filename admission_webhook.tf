@@ -1,5 +1,5 @@
 data "kustomization_build" "admission_webhook" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/admission-webhook/upstream/overlays/cert-manager"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/admission-webhook/upstream/overlays/cert-manager"
 }
 
 resource "kustomization_resource" "admission_webhook_manifests_priority_1" {

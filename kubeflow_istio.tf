@@ -1,5 +1,5 @@
 data "kustomization_build" "kubeflow_istio" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/istio-1-9/kubeflow-istio-resources/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/istio-1-9/kubeflow-istio-resources/base"
 }
 
 resource "kustomization_resource" "kubeflow_istio_manifests_priority_1" {

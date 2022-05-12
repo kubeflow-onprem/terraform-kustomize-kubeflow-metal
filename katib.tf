@@ -1,5 +1,5 @@
 data "kustomization_build" "kubeflow_katib" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/katib/upstream/installs/katib-with-kubeflow"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/katib/upstream/installs/katib-with-kubeflow"
 }
 
 resource "kustomization_resource" "kubeflow_katib_manifests_priority_1" {

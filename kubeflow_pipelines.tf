@@ -1,5 +1,5 @@
 data "kustomization_build" "kubeflow_pipelines" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/pipeline/upstream/env/platform-agnostic-multi-user"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/pipeline/upstream/env/platform-agnostic-multi-user"
 }
 
 resource "kustomization_resource" "kubeflow_pipelines_manifests_priority_1" {

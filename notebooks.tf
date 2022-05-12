@@ -1,9 +1,9 @@
 data "kustomization_build" "notebooks" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/jupyter/notebook-controller/upstream/overlays/kubeflow"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/jupyter/notebook-controller/upstream/overlays/kubeflow"
 }
 
 data "kustomization_build" "jupyter" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/jupyter/jupyter-web-app/upstream/overlays/istio"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/jupyter/jupyter-web-app/upstream/overlays/istio"
 }
 
 resource "kustomization_resource" "notebooks_manifests_priority_1" {

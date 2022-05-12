@@ -1,5 +1,5 @@
 data "kustomization_build" "user_namespace" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/user-namespace/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/user-namespace/base"
 }
 
 resource "kustomization_resource" "user_namespace_manifests_priority_1" {

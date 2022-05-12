@@ -1,5 +1,5 @@
 data "kustomization_build" "kubeflow_dex" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/dex/overlays/istio"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/dex/overlays/istio"
 }
 
 resource "kustomization_resource" "kubeflow_dex_manifests_priority_1" {

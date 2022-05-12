@@ -1,9 +1,9 @@
 data "kustomization_build" "kubeflow_certmanager" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/cert-manager/cert-manager/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/cert-manager/cert-manager/base"
 }
 
 data "kustomization_build" "kubeflow_certmanager_issuer" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/cert-manager/kubeflow-issuer/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/cert-manager/kubeflow-issuer/base"
 }
 
 resource "kustomization_resource" "kubeflow_certmanager_manifests_priority_1" {

@@ -1,5 +1,5 @@
 data "kustomization_build" "mpi_operator" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/mpi-job/upstream/overlays/kubeflow"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/mpi-job/upstream/overlays/kubeflow"
 }
 
 resource "kustomization_resource" "mpi_operator_manifests_priority_1" {

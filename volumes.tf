@@ -1,5 +1,5 @@
 data "kustomization_build" "kubeflow_volumes" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/volumes-web-app/upstream/overlays/istio"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/volumes-web-app/upstream/overlays/istio"
 }
 
 resource "kustomization_resource" "kubeflow_volumes_manifests_priority_1" {

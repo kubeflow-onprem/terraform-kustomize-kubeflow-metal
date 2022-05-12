@@ -1,13 +1,13 @@
 data "kustomization_build" "kubeflow_knative_serving" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/knative/knative-serving/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/knative/knative-serving/base"
 }
 
 data "kustomization_build" "kubeflow_cluster_local_gateway" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/istio-1-9/cluster-local-gateway/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/istio-1-9/cluster-local-gateway/base"
 }
 
 data "kustomization_build" "kubeflow_knative_eventing" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/knative/knative-eventing/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/knative/knative-eventing/base"
 }
 
 resource "kustomization_resource" "kubeflow_knative_serving_manifests_priority_1" {

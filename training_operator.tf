@@ -1,5 +1,5 @@
 data "kustomization_build" "training_operator" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/training-operator/upstream/overlays/kubeflow"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/training-operator/upstream/overlays/kubeflow"
 }
 
 resource "kustomization_resource" "training_operator_manifests_priority_1" {

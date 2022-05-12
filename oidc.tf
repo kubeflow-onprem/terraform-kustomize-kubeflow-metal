@@ -1,5 +1,5 @@
 data "kustomization_build" "kubeflow_oidc" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/oidc-authservice/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/oidc-authservice/base"
 }
 
 resource "kustomization_resource" "kubeflow_oidc_manifests_priority_1" {

@@ -1,13 +1,13 @@
 data "kustomization_build" "kubeflow_istio_crds" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/istio-1-9/istio-crds/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/istio-1-9/istio-crds/base"
 }
 
 data "kustomization_build" "kubeflow_istio_namespace" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/istio-1-9/istio-namespace/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/istio-1-9/istio-namespace/base"
 }
 
 data "kustomization_build" "kubeflow_istio_install" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/common/istio-1-9/istio-install/base"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/common/istio-1-9/istio-install/base"
 }
 
 resource "kustomization_resource" "kubeflow_istio_crds_manifests_priority_1" {

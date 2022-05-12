@@ -1,9 +1,9 @@
 data "kustomization_build" "tensorboard" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/tensorboard/tensorboards-web-app/upstream/overlays/istio"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/tensorboard/tensorboards-web-app/upstream/overlays/istio"
 }
 
 data "kustomization_build" "tensorboard_controller" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/tensorboard/tensorboard-controller/upstream/overlays/kubeflow"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/tensorboard/tensorboard-controller/upstream/overlays/kubeflow"
 }
 
 resource "kustomization_resource" "tensorboard_manifests_priority_1" {

@@ -1,5 +1,5 @@
 data "kustomization_build" "kubeflow_centraldashboard" {
-  path = "kubeflow/manifests-${var.kubeflow_version}/apps/centraldashboard/upstream/overlays/istio"
+  path = "${path.root}/${var.kubeflow_path}/manifests-${var.kubeflow_version}/apps/centraldashboard/upstream/overlays/istio"
 }
 
 resource "kustomization_resource" "kubeflow_centraldashboard_manifests_priority_1" {
