@@ -35,3 +35,9 @@ variable "kubeflow_version" {
   description = "Version of kubeflow to install"
   default     = "1.4.0"
 }
+
+variable "kubeflow_path" {
+  type = string
+  description = "Path to kubeflow (relative to path.root)"
+  default = "kubeflow"
+}
